@@ -23,7 +23,7 @@ If no new workload were added in the last 24 hours from the time the script runs
   
     3.2 This module will create:  
         3.2.1 A file named `workload_conditions.json` to save the latest health information for the workloads in the selected applications.  
-        2.2.2 One CSV report per application if:  
+        2.2.2 One CSV report per application if:   
             There is 1 or more workloads with that application label with a health warning and:  
                 The workload had no health warnings on the last report or;   
                 The health warning in the workload is different than the previously saved health warning for that workload;  
