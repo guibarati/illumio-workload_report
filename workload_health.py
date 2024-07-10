@@ -87,8 +87,8 @@ def compare_conditions(saved_conditions,applications_workoads_conditions):
                     new_conditions[application] = {}
                 new_conditions[application][workload] = applications_workoads_conditions[application][workload]
     return new_conditions
-                    
-        
+
+
 def report_conditions(new_conditions):
     for application, workloads in new_conditions.items():
         date = datetime.datetime.now().strftime("%Y-%m-%d")
