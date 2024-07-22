@@ -1,6 +1,6 @@
 from pce import IllumioPCE
 import time,csv,auth_api
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta
 
 
 def create_pce_obj():
@@ -10,9 +10,10 @@ def create_pce_obj():
 
 
 def check_time(datetime_data, hours):
-    time_entry_dt = datetime.fromisoformat(datetime_data.replace("Z", "+00:00"))
-    current_time_utc = datetime.now(timezone.utc)
-    time_difference = current_time_utc - time_entry_dt
+    #time_entry_dt = datetime.fromisoformat(datetime_data.replace("Z", "+00:00"))
+    time_entry_dt = datetime.fromisoformat(datetime_data.replace("Z", ""))
+    current_time = datetime.now()
+    time_difference = current_time - time_entry_dt
     if time_difference < timedelta(hours=hours):
         return True
     else:
