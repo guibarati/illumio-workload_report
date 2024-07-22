@@ -36,9 +36,9 @@ If no new workload were added in the last 24 hours from the time the script runs
 
 2. To compile the script:  
 2.1 Install the PyInstaller module:  
-2.1.2 "python -m pip install PyInstaller"  
+2.1.2 `python -m pip install PyInstaller`  
 2.2 Use PyInstaller to compile the script:  
-2.2.1 python -m PyInstaller --onefile [script_name.py]
+2.2.1 `python -m PyInstaller --onefile [script_name.py]`
 
 The exe file will be created under the 'dist' folder. The 'dist' folder will be in the same folder where the PyInstaller runs.
 
