@@ -167,6 +167,7 @@ class IllumioPCE:
             time.sleep(1)
         url = f"{base_url}{response.json()['result']['href']}"
         response = self.session.request('GET', url, verify=False)
+        del self.session.headers['Prefer']
         return response
 
     def get_workloads(self, params=None):
