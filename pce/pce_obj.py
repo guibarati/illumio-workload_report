@@ -98,6 +98,8 @@ class IllumioPCE:
             return self._data
 
     def __init__(self, pce_url, api_key, api_secret, org_id=1):
+        if not pce_url.startswith('https://'):
+            pce_url = f'https://{pce_url}'
         self.pce_url = pce_url
         self.api_key = api_key
         self.api_secret = api_secret
@@ -139,7 +141,11 @@ class IllumioPCE:
         base_url = f"{self.pce_url}/api/v2"
         base_url_orgid = f"{base_url}/orgs/{self.org_id}"
         url = f"{base_url_orgid}{endpoint}"
-        response = self.session.request(method, url, verify=False, **kwargs)
+        try:
+            response = self.session.request(method, url, verify=False, **kwargs)
+        except requests.exceptions.RequestException as e:
+            print(f"Request failed: {e}")
+            return
         response.raise_for_status()
         if method == 'GET':
             total_objects = int(response.headers.get('X-Total-Count')) #type: ignore
